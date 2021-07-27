@@ -1,6 +1,9 @@
 #Extra
 Application_A/size_*
 Application_A/time_*
+fe-*
+ts-*
+mts-*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
