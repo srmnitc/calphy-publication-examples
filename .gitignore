@@ -4,6 +4,7 @@ Application_A/time_*
 fe-*
 ts-*
 mts-*
+slurm*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,17 +1,16 @@
-element: 'Ti'
-mass: 47.867
+element: ['Zr', 'Cu']
+mass: [91.224, 63.546]
 calculations:
-- mode: ts
-  temperature: [500]
+- mode: ts 
+  temperature: [300, 900]
   pressure: [0]
-  lattice: [BCC]
-  repeat: [10, 10, 10]
-  state: solid
+  lattice: [../Zr2Cu.data]
+  state: [solid]
   nsims: 1
 
 md:
   pair_style: eam/fs
-  pair_coeff: "* * Ti.eam.fs Ti"
+  pair_coeff: "* * ../ZrCu.eam.fs Zr Cu"
   timestep: 0.001
   tdamp: 0.1
   pdamp: 0.1
@@ -21,11 +20,8 @@ md:
 queue:
   scheduler: slurm
   cores: 20
-  jobname: tibcc
-  walltime: "23:50:00"
   queuename: shorttime
-  memory: 3GB
+  jobname: zr2cu
   commands:
     - source ~/.zghrc
-    - conda activate calphy
-
+    - conda activate stablelammps
