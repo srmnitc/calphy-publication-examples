@@ -1,0 +1,40 @@
+units        metal 
+dimension    3 
+boundary     p p p 
+atom_style   atomic 
+
+lattice      fcc 4.045  
+region       box block 0 10 0 10 0 10
+create_box   1 box
+create_atoms 1 box
+
+pair_style   eam/alloy
+pair_coeff   * * /home/users/menonsqr/specific-heat/potential/cu.eam.alloy Cu
+velocity     all create ${T} 233
+fix          1 all npt temp ${T} ${T} 0.1 iso 0.0 0.0 0.1
+
+run          100000
+ 
+fix          extra all print 100 "$(pe) $(ke) $(etotal) $(press) $(vol) $(temp)" file data1.dat screen no
+ 
+run          1000000
+
+unfix        extra
+fix          extra all print 100 "$(pe) $(ke) $(etotal) $(press) $(vol) $(temp)" file data2.dat screen no
+
+run          1000000
+
+unfix        extra
+fix          extra all print 100 "$(pe) $(ke) $(etotal) $(press) $(vol) $(temp)" file data3.dat screen no
+
+run          1000000
+
+unfix        extra
+fix          extra all print 100 "$(pe) $(ke) $(etotal) $(press) $(vol) $(temp)" file data4.dat screen no
+
+run          1000000
+
+unfix        extra
+fix          extra all print 100 "$(pe) $(ke) $(etotal) $(press) $(vol) $(temp)" file data5.dat screen no
+
+run          1000000

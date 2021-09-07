@@ -1,0 +1,30 @@
+element: ['Cu']
+mass: [63.546]
+calculations:
+- mode: ts 
+  temperature: [400, 1400]
+  pressure: [0]
+  lattice: [FCC]
+  repeat: [10, 10, 10]
+  state: [solid]
+  nsims: 3
+  
+md:
+  pair_style: eam/alloy
+  pair_coeff: "* * /home/users/menonsqr/specific-heat/potential/cu.eam.alloy Cu"
+  timestep: 0.001
+  tdamp: 0.1
+  pdamp: 0.1
+  te: 25000
+  ts: 50000
+
+queue:
+  cores: 20
+  memory: 3GB
+  queuename: shorttime
+  scheduler: slurm
+  jobname: eamcp
+  walltime: '23:50:00'
+  commands:
+    - source ~/.zghrc
+    - conda activate stablelammps
