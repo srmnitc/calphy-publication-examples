@@ -11,7 +11,7 @@ calculations:
   
 md:
   pair_style: eam/alloy
-  pair_coeff: "* * /home/users/menonsqr/specific-heat/potential/cu.eam.alloy Cu"
+  pair_coeff: "* * /home/users/menonsqr/Repos/calphy-publication-examples/Application_D/Cu01.eam.alloy Cu"
   timestep: 0.001
   tdamp: 0.1
   pdamp: 0.1

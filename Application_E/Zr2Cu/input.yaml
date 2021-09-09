@@ -4,13 +4,13 @@ calculations:
 - mode: ts 
   temperature: [300, 900]
   pressure: [0]
-  lattice: [../Zr2Cu.data]
+  lattice: ["/home/users/menonsqr/Repos/calphy-publication-examples/Application_E/Zr2Cu.data"]
   state: [solid]
   nsims: 1
 
 md:
   pair_style: eam/fs
-  pair_coeff: "* * ../ZrCu.eam.fs Zr Cu"
+  pair_coeff: "* * /home/users/menonsqr/Repos/calphy-publication-examples/Application_E/ZrCu.eam.fs Zr Cu"
   timestep: 0.001
   tdamp: 0.1
   pdamp: 0.1
